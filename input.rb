@@ -3,26 +3,14 @@ class Input
   attr_reader :positions
   attr_reader :paths
 
-  def initialize(file_name)
+  def initialize(user_input)
     @grid = Hash.new([])
     @positions = []
     @paths = []
-    read_line(file_name)
+    parse_input(user_input)
   end
 
   private
-  def file_sandwich(file_name)
-    begin
-      file = open(file_name)
-    rescue
-      puts "No such file found"
-    else
-      yield(file)
-    end
-  ensure
-    file.close if file
-  end
-
   def store_position(line)
     rover_position = line.split(" ")
     position = {
@@ -42,21 +30,21 @@ class Input
     end
   end
 
-  def read_line(file_name)
-    file_sandwich(file_name) do |file|
-      grid_limits = file.gets.split(" ")
-      @grid[:x] = grid_limits[0].to_i
-      @grid[:y] = grid_limits[1].to_i
+  def parse_input(user_input)
+    input_array = user_input.split("\n")
+    input_array.shift # check for starting blank line
 
-      i = 0
-      while line = file.gets
-        if i % 2 == 0 # it's denoting the position
-          store_position(line)
-        else # path of the rover
-          store_path(line)
-        end
-        i += 1
-      end
+    # first line
+    input = input_array.shift
+    line_array = input.split("</br>")
+    grid_limits = line_array[0].split(" ")
+    @grid = { x: grid_limits[0].to_i, y: grid_limits[1].to_i }
+    
+    input_array.each_with_index do |input, index|
+      next if (input == "END")
+      line_array = input.split("</br>")
+      line = line_array[0]
+      index % 2 == 0 ? store_position(line) : store_path(line)
     end
   end
 

@@ -53,7 +53,12 @@ end
 
 class TestInput < Test::Unit::TestCase
   def test_input
-    input = Input.new("test.txt")
+    input = Input.new("</br>
+0 0</br>
+0 2 N</br>
+LMLMLMLMM</br>
+0 1 S</br>
+MMLMLMRMM</br>")
     assert_equal input.grid, { x: 0, y: 0 }
     assert_equal input.positions, [{ x: 0, y: 2, d: "N" }, { x: 0, y: 1, d: "S" }]
     assert_equal input.paths, [ [ "L", "M", "L", "M", "L", "M", "L", "M", "M" ], [ "M", "M", "L", "M", "L", "M", "R", "M", "M" ]]

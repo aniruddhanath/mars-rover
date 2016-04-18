@@ -2,10 +2,13 @@ require File.dirname(__FILE__) + '/input'
 require File.dirname(__FILE__) + '/rover'
 require File.dirname(__FILE__) + '/error'
 
-print "Give away a file name where the input is! "
-file_name = gets.chomp
+print "Enter the input! After you're done, type `END` "
+$/ = "END"  
+user_input = STDIN.gets
 
-input = Input.new(file_name)
+# file_name = gets.chomp
+
+input = Input.new(user_input)
 grid = input.grid
 
 begin
