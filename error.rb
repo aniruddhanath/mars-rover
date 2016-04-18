@@ -1,0 +1,2 @@
+class GridLimitExceeded < RuntimeError
+end
