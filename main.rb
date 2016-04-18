@@ -1,12 +1,8 @@
 require File.dirname(__FILE__) + '/input'
 require File.dirname(__FILE__) + '/rover'
 require File.dirname(__FILE__) + '/error'
-
-print "Enter the input! After you're done, type `END` "
-$/ = "END"  
-user_input = STDIN.gets
-
-# file_name = gets.chomp
+ 
+user_input = ARGF.read
 
 input = Input.new(user_input)
 grid = input.grid
