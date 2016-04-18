@@ -1,8 +1,7 @@
-</br>
-5 5</br>
-1 2 N</br>
-LMLMLMLMM</br>
-3 3 E</br>
-MMRMMRMRRM</br>
-5 10 E</br>
-LMLMLMLMM</br>
+5 5
+1 2 N
+LMLMLMLMM
+3 3 E
+MMRMMRMRRM
+5 10 E
+LMLMLMLMM
