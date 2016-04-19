@@ -1,7 +1,7 @@
 # mars-rovers
 
-`ruby main.rb < input.txt`
+`ruby main.rb < inputs/input.txt`
 
 test
 ---
-`ruby test.rb < test.txt`
+`ruby tests/test.rb`

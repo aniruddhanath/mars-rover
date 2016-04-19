@@ -1,7 +1,5 @@
-require 'test/unit'
-require File.dirname(__FILE__) + '/input'
-require File.dirname(__FILE__) + '/rover'
-require File.dirname(__FILE__) + '/error'
+require File.expand_path("../../classes/rover.rb", __FILE__)
+require File.expand_path("../../classes/error.rb", __FILE__)
 
 class TestRover < Test::Unit::TestCase
   def test_rover
@@ -48,14 +46,4 @@ class TestRover < Test::Unit::TestCase
     }
   end
 
-end
-
-
-class TestInput < Test::Unit::TestCase
-  def test_input
-    input = Input.new(ARGF.read)
-    assert_equal input.grid, { x: 0, y: 0 }
-    assert_equal input.positions, [{ x: 0, y: 2, d: "N" }, { x: 0, y: 1, d: "S" }]
-    assert_equal input.paths, [ [ "L", "M", "L", "M", "L", "M", "L", "M", "M" ], [ "M", "M", "L", "M", "L", "M", "R", "M", "M" ]]
-  end
 end

@@ -1,24 +1,23 @@
-require File.dirname(__FILE__) + '/input'
-require File.dirname(__FILE__) + '/rover'
-require File.dirname(__FILE__) + '/error'
- 
-user_input = ARGF.read
+require File.dirname(__FILE__) + '/classes/input'
+require File.dirname(__FILE__) + '/classes/rover'
+require File.dirname(__FILE__) + '/classes/error'
+require File.dirname(__FILE__) + '/classes/utils'
 
-input = Input.new(user_input)
-grid = input.grid
+include Utils
 
-begin
-  rovers = input.rovers
-rescue RuntimeError => e
-  abort(e.message)
-end
+# reading first line for grid limits
+$grid = Utils.grid($stdin.readline)
 
-rovers.each do |rover|
+while !$stdin.eof?
+  input = Input.new
+  input.position($stdin.readline)
+  input.path($stdin.readline)
   begin
-    r = Rover.new(rover, grid)
+    r = Rover.new(input.rover, $grid)
   rescue GridLimitExceeded => e
     puts e.message
   else
     puts r.get_position
   end
 end
+

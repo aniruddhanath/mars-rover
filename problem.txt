@@ -39,15 +39,15 @@ The output for each rover should be its final co-ordinates and heading.
 
 INPUT AND OUTPUT
 
-Test Input:</br>
-5 5</br>
-1 2 N</br>
-LMLMLMLMM</br>
-3 3 E</br>
-MMRMMRMRRM</br>
+Test Input:
+5 5
+1 2 N
+LMLMLMLMM
+3 3 E
+MMRMMRMRRM
 
-Expected Output: </br>
-1 3 N</br>
+Expected Output: 
+1 3 N
 5 1 E
 Follow the coding guidelines: https://docs.google.com/a/browserstack.com/document/d/1CK3IVbm0Y73bPWQYVoqhfGWz4NZWrCMcu7X1Yn-NSX0/edit?usp=sharing
 Also, Write test cases using: Test::Unit - Ruby's inbuilt unit testing framework.
